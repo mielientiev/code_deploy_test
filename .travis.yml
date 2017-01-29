@@ -9,10 +9,10 @@ jdk:
 - oraclejdk8
 
 env:
-  - TEST_DIR=ShortUrlService
+  - PROJECT_DIR=ShortUrlService
 
 script:
-- sbt ++$TRAVIS_SCALA_VERSION test
+- cd $PROJECT_DIR; sbt ++$TRAVIS_SCALA_VERSION test
 
 
 cache:
