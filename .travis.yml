@@ -24,6 +24,7 @@ deploy:
     local_dir: target/build
     skip_cleanup: true
     bucket: test.deployment
+    upload-dir: $PROJECT_DIR
 
 
 cache:
