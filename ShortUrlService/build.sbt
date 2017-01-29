@@ -1,7 +1,6 @@
 lazy val commonBuildSettings = Seq(
   organization := "com.mielientiev",
   name := "ShortUrlService",
-  version := "0.1.0",
   scalaVersion in ThisBuild := "2.12.1",
   scalacOptions ++= Seq(
     "-deprecation", // Emit warning and location for usages of deprecated APIs.
@@ -32,6 +31,11 @@ lazy val commonBuildSettings = Seq(
 )
 lazy val root = (project in file("."))
   .settings(commonBuildSettings)
+  .settings(
+    target in assembly := target.value / "/build/",
+    mainClass in assembly := Some("com.mielientiev.ShortUrlApp"),
+    assemblyJarName in assembly := s"short_url_service-${version.value}.jar"
+  )
   .settings(libraryDependencies ++= Seq(
     "org.http4s" %% "http4s-dsl" % "0.15.3a",
     "org.http4s" %% "http4s-blaze-server" % "0.15.3a",
