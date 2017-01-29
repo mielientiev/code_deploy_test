@@ -12,7 +12,7 @@ env:
   - TEST_DIR=ShortUrlService
 
 script:
-sbt -jvm-opts jvmopts.travis ++$TRAVIS_SCALA_VERSION test
+- sbt ++$TRAVIS_SCALA_VERSION test
 
 
 cache:
